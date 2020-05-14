@@ -4,4 +4,4 @@ When I first used Ionic Slides (https://ionicframework.com/docs/api/slides) I co
 
 With that in mind, I decided to craft my own example nd make it available for others interested in learning how to add slides to their Ionic applications.
 
-![Home Screen](images/home-screen.png)
+![Home Screen](images/home-page.png)
