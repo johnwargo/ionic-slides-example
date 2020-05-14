@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'slides1',
+    loadChildren: () => import('./slides1/slides1.module').then( m => m.Slides1PageModule)
+  },
+  {
+    path: 'slides2',
+    loadChildren: () => import('./slides2/slides2.module').then( m => m.Slides2PageModule)
+  },
 ];
 
 @NgModule({
