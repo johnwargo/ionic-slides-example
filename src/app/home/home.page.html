@@ -1,20 +1,36 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Ionic Slides Example App
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openRepo()">
+        <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Ionic Slides Example</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list #menuItems>
+    <ion-list-header no-padding>
+      Tap one of the items below to view the corresponding slides page.
+    </ion-list-header>
+    <ion-item *ngFor="let menuItem of menu" routerLink="/{{menuItem.target}}" routerDirection="forward" no-padding
+      detail>
+      <ion-label>
+        <h2>{{menuItem.title}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <h2><a href="https://johnwargo.com.com" target="_blank">by John M. Wargo</a></h2>
+</ion-footer>
