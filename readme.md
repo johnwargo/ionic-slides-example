@@ -4,6 +4,8 @@ When I first used Ionic Slides (https://ionicframework.com/docs/api/slides) I co
 
 With that in mind, I decided to craft my own example nd make it available for others interested in learning how to add slides to their Ionic applications (in two different configurations).
 
+**Note:** The screenshots used in this example app are from my [Time Slicer](https://timeslicer.app) app; this was the first app of my own that I used Ionic Slides for, so that's where I learned how to do this.
+
 To use this sample:
 
 1. Make sure you have [`git`](https://git-scm.com/) and [node.js](https://nodejs.org/en/) installed on your system
@@ -32,3 +34,112 @@ Your default browser will open then display the following page:
 ![Home Screen](images/home-page.png)
 
 Play around with the two slides options to see how the app works.
+
+I did two slides implementations in this app because so many examples show Ionic Slides only using images, no text. Since the way you implement them are different, I decided to include both.
+
+## Slides Without Text
+
+Implementing `ion-slides` without text is easy, wrap each image with an `<ion-slide>` and you're good:
+
+```HTML
+<ion-slides pager="true">
+    <ion-slide>
+      <ion-img class="screenshot" src="assets/intro-01.png"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img class="screenshot" src="assets/intro-02.png"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img class="screenshot" src="assets/intro-03.png"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img class="screenshot" src="assets/intro-04.png"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+        <ion-img class="screenshot" src="assets/intro-05.png"></ion-img>
+    </ion-slide>
+</ion-slides>
+```
+
+However, once you add additional 'stuff' to the page, the extra stuff stops aligning properly. To fix this, I found that I had to a grid with rows and columns. The last slide in the series, the one that has the Home button on it, looks like this:
+
+```html
+<ion-slide>
+    <ion-grid>
+        <ion-row>
+          <ion-img class="screenshot" src="assets/intro-05.png"></ion-img>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="margin-top:20px;" (click)="goHome()">
+              Go Home
+            </ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-slide>
+```
+
+When I first implemented this, I noticed that the page indicator at the bottom of the page didn't align properly with the other content on the page (it overlapped the image). To solve this, I found a solution on [Stack Overflow](https://stackoverflow.com/questions/55566105/ion-slides-pagination-bullet-overlap-the-slides-content-ionic-4). I added the following code to the project's `global.scss` file and everything worked perfectly (well, more or less).
+
+```css
+.swiper-pagination {
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 3px;
+}
+```
+
+Styling the rest of the page was pretty easy. I set a background color for one of the pages using this:
+
+```css
+ion-slide {
+    background-color: lightgrey;
+}
+
+```
+
+I made sure the image sized correctly using the following CSS:
+
+```css
+ion-img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    max-width: 800px;
+    max-height: 60%;
+}
+```
+
+And my Home button overlapped the pager component a bit, so I gave it a bottom margin using the following:
+
+```css
+ion-button {
+    margin-bottom: 30px;
+}
+```
+
+
+## Slides With Text
+
+
+```html
+<ion-slide>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <p>Time Slicer is like a <strong>Stopwatch</strong><br />with <strong>Categories</strong>.</p>
+              </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-img src="assets/intro-01.png"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-slide>
+```
