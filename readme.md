@@ -100,8 +100,9 @@ Styling the rest of the page was pretty easy. I set a background color for one o
 ion-slide {
     background-color: lightgrey;
 }
-
 ```
+
+When you test the app, notice how the whole page doesn't get the background color until you get to the last page in the slide show.  I'm sure I could fix this with a little CSS, but I'll leave that up to you - this sample app gives you a playground you can use to figure out all sorts of styling for the Slides.
 
 I made sure the image sized correctly using the following CSS:
 
