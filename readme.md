@@ -124,8 +124,9 @@ ion-button {
 }
 ```
 
-
 ## Slides With Text
+
+As I mentioned in the previous section, as soon as a Slide has more than just an image, layout of the slides components goes all wonky. I'm sure it was for good reason, but I'm not enough of a CSS expert to figure out the best way to make it all look the way I wanted. Instead, I used `<ion-grid>`, `<ion-row>`, and `<ion-col>` components to layout sections like I wanted. It all works pretty well - here's an example from one of the app's slides:
 
 
 ```html
