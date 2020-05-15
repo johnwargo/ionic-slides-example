@@ -8,7 +8,7 @@ With that in mind, I decided to craft my own example nd make it available for ot
 
 To use this sample:
 
-1. Make sure you have [`git`](https://git-scm.com/) and [node.js](https://nodejs.org/en/) installed on your system
+1. Make sure you have [git](https://git-scm.com/) and [node.js](https://nodejs.org/en/) installed on your system
 2. Open a terminal window or command prompt
 3. Execute the following command:
 
